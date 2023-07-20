@@ -22,10 +22,8 @@ func Work(url string) modules.WorkResult {
 	urls := GetUrl(body)
 	links := GetPanLink(body)
 	var result modules.WorkResult
-	//var reqs []engine.Request
-	//fmt.Println(body)
+	result.OriginUrl = url
 	for _, u := range urls {
-		//log.Printf("Fetched url: %s\n", u)
 		if u == "" {
 			continue
 		}
@@ -38,7 +36,6 @@ func Work(url string) modules.WorkResult {
 		if link == "" {
 			continue
 		}
-		//log.Printf("Got Link: %q\n", link)
 		result.Items = append(result.Items, link)
 	}
 

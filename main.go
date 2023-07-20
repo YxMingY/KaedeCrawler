@@ -10,9 +10,11 @@ import (
 
 const BaiduSearch = "https://m.baidu.com/from=844b/pu=sz%401321_1001/s?word="
 
+var kw string
+
 func main() {
 	fmt.Printf("Please input what you want to get:")
-	var kw string
+
 	fmt.Scanln(&kw)
 	fmt.Printf("Start fetching %q\n", kw)
 	time.Sleep(time.Second)
@@ -24,4 +26,6 @@ func main() {
 
 	modules.Init(10, bdpan.HandleResult, seed)
 	modules.Run()
+	fmt.Printf("Enter any content to exit")
+	fmt.Scanln(&kw)
 }
